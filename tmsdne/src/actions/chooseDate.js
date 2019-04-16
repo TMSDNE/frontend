@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 export const DATE_START = 'DATE_START';
 export const DATE_SUCCESS = 'DATE_SUCCESS';
 export const DATE_FAILURE = 'DATE_FAILURE';
