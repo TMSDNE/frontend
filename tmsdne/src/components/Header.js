@@ -2,7 +2,8 @@ import React from 'react';
 import SelectDate from './SelectDate';
 
 const Header = props => {
-    const today = new Date().toLocaleDateString()
+    const format = {weekday: 'short', month: 'long', day: 'numeric', year: 'numeric'}
+    const today = new Date().toLocaleDateString('en-US', format)
     return (
         <div>
             <nav className="navbar-container">
