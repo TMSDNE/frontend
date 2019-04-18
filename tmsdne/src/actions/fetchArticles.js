@@ -1,16 +1,16 @@
 import axios from 'axios';
 
-export const FETCH_START = 'FETCH_START';
-export const FETCH_SUCCESS = 'FETCH_SUCCESS';
-export const FETCH_FAILURE = 'FETCH_FAILURE';
+export const FETCH_ARTICLE_START = 'FETCH_ARTICLE_START';
+export const FETCH_ARTICLE_SUCCESS = 'FETCH_ARTICLE_SUCCESS';
+export const FETCH_ARTICLE_FAILURE = 'FETCH_ARTICLE_FAILURE';
 
 export const getData = dispatch => {
-    dispatch({type: FETCH_START})
+    dispatch({type: FETCH_ARTICLE_START})
     axios
-    .get()
+    .get(`https://tmsdne.herokuapp.com/api/articles`)
     .then(res => {
         console.log(res)
-        dispatch({type: LOAD_SUCCESS, payload: res})
+        dispatch({type: FETCH_ARTICLE_SUCCESS, payload: res})
     })
     .catch(err => console.log(err))
 }
