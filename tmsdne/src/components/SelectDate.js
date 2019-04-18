@@ -14,20 +14,24 @@ class SelectDate extends React.Component {
         date: null,
         focused: null
     }
-
     
+    toISODateString(date) {
+        return `${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()}`
+    }
+
     render(){
         return(
             <div>
                 <SingleDatePicker date={this.state.date} 
-                onDateChange={date => this.setState({date})}
-                focused={this.state.focused}
-                onFocusChange={({ focused }) => this.setState({ focused })}
-                id={Date().now}
-                numberOfMonths={1}
-                disableScroll={true}
+                    onDateChange={date => 
+                        this.setState({date: this.toISODateString(date._d)})
+                    }}
+                    focused={this.state.focused}
+                    onFocusChange={({ focused }) => this.setState({ focused })}
+                    id={Date().now}
+                    numberOfMonths={1}
+                    disableScroll={true}
                  />
-                
             </div>
         )
     }

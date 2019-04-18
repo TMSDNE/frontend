@@ -1,5 +1,5 @@
 import React from 'react';
-import Article from './Article'
+// import Article from './Article'
 import {connect} from 'react-redux';
 import {getData} from '../actions/fetchArticles';
 
