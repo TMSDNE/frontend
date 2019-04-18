@@ -1,6 +1,13 @@
 import React from 'react';
 import 'react-dates/initialize';
 import {SingleDatePicker} from 'react-dates';
+import ThemedStyleSheet from 'react-with-styles/lib/ThemedStyleSheet';
+import aphroditeInterface from 'react-with-styles-interface-aphrodite';
+import DefaultTheme from 'react-dates/lib/theme/DefaultTheme';
+
+ThemedStyleSheet.registerInterface(aphroditeInterface);
+ThemedStyleSheet.registerTheme(DefaultTheme);
+
 
 class SelectDate extends React.Component {
     state = {
@@ -16,7 +23,10 @@ class SelectDate extends React.Component {
                 onDateChange={date => this.setState({date})}
                 focused={this.state.focused}
                 onFocusChange={({ focused }) => this.setState({ focused })}
-                id={Date.now()} />
+                id={Date().now}
+                numberOfMonths={1}
+                disableScroll={true}
+                 />
                 
             </div>
         )
@@ -24,9 +34,4 @@ class SelectDate extends React.Component {
     
 }
 
-
-// const moment = require('moment');
-
-// function toMySQLDateFormat(date) { 
-// return moment(date).format('YYYY-MM-DD');
-// }
+export default SelectDate;
