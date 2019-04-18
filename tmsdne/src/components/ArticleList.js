@@ -1,18 +1,25 @@
 import React from 'react';
+import Article from './Article'
+import {connect} from 'react-redux';
+import {getData} from '../actions/fetchArticles';
 
 const ArticleList = props => {
     return (
         <div>
-            {props.articles.map(article => {
-                return (
-                    <div className='articleCard'>
-                        <img src=''/>
-                        <h4>{article.title}</h4>
-                    </div>
-                )
-            })}
+            {props.articles.map(article => (
+                <Article article={article} />
+            ))}
         </div>
     )
 }
 
-export default ArticleList;
+const mapStateToProps = state => {
+    return {
+        articles: state.article
+    }
+}
+
+export default connect(
+    mapStateToProps,
+    {getData}
+)(ArticleList);
