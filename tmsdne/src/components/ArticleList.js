@@ -6,9 +6,9 @@ import {getData} from '../actions/fetchArticles';
 const ArticleList = props => {
     return (
         <div>
-            {props.articles.map(article => (
+            {/* {props.articles.map(article => (
                 <Article article={article} />
-            ))}
+            ))} */}
         </div>
     )
 }
