@@ -12,6 +12,8 @@ const initialState = {
 
 export const reducer = (state = initialState, {type, payload}) => {
     switch(type) {
+        case FETCH_ARTICLE_START:
+            return {}
         case FETCH_ARTICLE_SUCCESS:
             return {
                 ...state,
