@@ -2,9 +2,9 @@ import {
     LOAD_START,
     LOAD_SUCCESS,
     LOAD_FAILURE,
-    FETCH_START,
-    FETCH_SUCCESS,
-    FETCH_FAILURE
+    FETCH_ARTICLE_START,
+    FETCH_ARTICLE_SUCCESS,
+    FETCH_ARTICLE_FAILURE
 } from '../actions/index';
 
 const initialState = {
@@ -34,12 +34,12 @@ export const reducer = (state = initialState, {type, payload}) => {
                 ...state,
                 error: payload.error
             }
-        case FETCH_START: 
+        case FETCH_ARTICLE_START: 
             return {
                 ...state,
                 fetchingData: true
             }
-        case FETCH_SUCCESS:
+        case FETCH_ARTICLE_SUCCESS:
             return {
                 ...state,
                 title: payload,
@@ -47,7 +47,7 @@ export const reducer = (state = initialState, {type, payload}) => {
                 text: payload,
                 img: payload
             }
-        case FETCH_FAILURE:
+        case FETCH_ARTICLE_FAILURE:
             return {
                 error: payload.error
             }
