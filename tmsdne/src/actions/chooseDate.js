@@ -1,16 +1,16 @@
 import axios from 'axios';
 
-export const DATE_START = 'DATE_START';
-export const DATE_SUCCESS = 'DATE_SUCCESS';
-export const DATE_FAILURE = 'DATE_FAILURE';
+export const FETCH_DATE_START = 'FETCH_DATE_START';
+export const FETCH_DATE_SUCCESS = 'FETCH_DATE_SUCCESS';
+export const FETCH_DATE_FAILURE = 'FETCH_DATE_FAILURE';
 
 export const chooseDate = data => dispatch => {
-    dispatch({type: DATE_START})
+    dispatch({type: FETCH_DATE_START})
     axios
-    .post(`http://834cfcf9.ngrok.io/`, data)
+    .post(``, data)
     .then(res => {
         console.log(res)
-        dispatch({type: DATE_SUCCESS, payload: res})
+        dispatch({type: FETCH_DATE_SUCCESS, payload: res})
     })
     .catch(err => console.log(err))
 }
