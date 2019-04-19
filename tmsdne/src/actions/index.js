@@ -32,3 +32,17 @@ export const login = creds => dispatch => {
     })
     .catch(err => console.log(err))
 }
+
+export const SIGNUP_START = 'SIGNUP_START';
+export const SIGNUP_SUCCESS = 'SIGNUP_SUCCESS';
+export const SIGNUP_FAILURE = 'SIGNUP_FAILURE';
+
+export const signup = creds => dispatch => {
+    dispatch({type: SIGNUP_START});
+    return axios
+    .post('https://tmsdne.herokuapp.com/api/auth/register', creds)
+    .then(res => {
+        dispatch({type: SIGNUP_SUCCESS, payload: res.data.payload})
+    })
+    .catch(err => console.log(err))
+}
