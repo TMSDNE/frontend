@@ -1,7 +1,7 @@
 import React from 'react';
-// import Article from './Article'
 import {connect} from 'react-redux';
 import {getData} from '../actions/index';
+
 
 class ArticleList extends React.Component {
     state = {
@@ -9,7 +9,7 @@ class ArticleList extends React.Component {
     }
 
     componentDidMount(){
-        this.props.getData(console.log)
+        this.props.getData()
     }
     
     handleLike = like => {
