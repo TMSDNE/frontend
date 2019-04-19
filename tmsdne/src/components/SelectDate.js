@@ -16,15 +16,13 @@ class SelectDate extends React.Component {
         date: null,
         focused: null
     }
-
-    componentWillReceiveProps(){
-        this.props.getData(this.props.date)
-    }
     
     toISODateString(date) {
         const month = date.getMonth()+1 <10 ? `0${date.getMonth()+1}` : `${date.getMonth()+1}`
         const day = date.getDate()+1 <10 ? `0${date.getDate()+1}` : `${date.getDate()+1}`
-        return this.props.storeDate(`${date.getFullYear()}-${month}-${day}`)
+        const fullDate = `${date.getFullYear()}-${month}-${day}`;
+        this.props.getData(fullDate);
+        return this.props.storeDate(fullDate);
     }
 
     render(){
