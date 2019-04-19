@@ -24,12 +24,6 @@ export const reducer = (state = initialState, {type, payload}) => {
             return {
                 error: payload.error
             }
-        case LOGIN_START:
-            return state
-        case LOGIN_SUCCESS:
-            return 
-        default:
-            return state
     }
 }
 
