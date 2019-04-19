@@ -23,15 +23,14 @@ class Login extends React.Component {
         e.preventDefault();
         this.props.login(this.state.credentials)
         .then(() => {
-            const route = this.props.location.state.from || '/';
-            this.props.history.push(route)
+            this.props.history.push('/')
         })
     }
 
     render() {
         return (
             <div>
-                <form>
+                <form onSubmit={this.login}>
                     <input type='text' 
                     name='username'
                     value={this.state.credentials.username}
