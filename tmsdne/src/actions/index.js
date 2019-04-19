@@ -6,14 +6,16 @@ export const FETCH_ARTICLE_START = 'FETCH_ARTICLE_START';
 export const FETCH_ARTICLE_SUCCESS = 'FETCH_ARTICLE_SUCCESS';
 export const FETCH_ARTICLE_FAILURE = 'FETCH_ARTICLE_FAILURE';
 
-export const getData = creds => dispatch => {
+export const getData = date => dispatch => {
+    // let user = JSON.parse(sessionStorage.getItem('data'))
+    // const token = user.data.id
     dispatch({type: FETCH_ARTICLE_START})
-    return axios
-    .post(`https://tmsdne.herokuapp.com/api/articles`, creds)
+    console.log(date)
+    axios
+    .post(`https://tmsdne.herokuapp.com/api/articles`, {timestamp: `${date}`})
     .then(res => {
-        // console.log(res.data)
-        window.localStorage.setItem('token', res.data.payload)
-        dispatch({type: FETCH_ARTICLE_SUCCESS, payload: res.data.payload})
+        console.log(res.data)
+        dispatch({type: FETCH_ARTICLE_SUCCESS, payload: res.data})
     })
     .catch(err => console.log(err))
 }
@@ -45,4 +47,10 @@ export const signup = creds => dispatch => {
         dispatch({type: SIGNUP_SUCCESS, payload: res.data.payload})
     })
     .catch(err => console.log(err))
+}
+
+export const STORE_DATE_SUCCESS = 'STORE_DATE_SUCCESS';
+
+export const storeDate = date => dispatch => {
+    dispatch({type: STORE_DATE_SUCCESS, payload: date})
 }
