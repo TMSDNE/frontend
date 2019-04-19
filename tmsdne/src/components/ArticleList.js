@@ -1,7 +1,7 @@
 import React from 'react';
 // import Article from './Article'
 import {connect} from 'react-redux';
-import {getData} from '../actions/fetchArticles';
+import {getData} from '../actions/index';
 
 class ArticleList extends React.Component {
     state = {
