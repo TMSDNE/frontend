@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {login} from '../actions';
+import './main.css'
 
 class Login extends React.Component {
     state = {
@@ -30,8 +31,11 @@ class Login extends React.Component {
     render() {
         return (
             <div>
+                <h2>Anything</h2>
                 <form onSubmit={this.login}>
-                    <input type='text' 
+                    <input
+                    className='border py-2 px-3' 
+                    type='text' 
                     name='username'
                     value={this.state.credentials.username}
                     onChange={this.handleChange} />
