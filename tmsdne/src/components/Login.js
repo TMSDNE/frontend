@@ -30,21 +30,36 @@ class Login extends React.Component {
 
     render() {
         return (
-            <div>
-                <form onSubmit={this.login}>
-                    <input
-                    className='border red' 
-                    type='text' 
-                    name='username'
-                    value={this.state.credentials.username}
-                    onChange={this.handleChange} />
-                    <input
-                    type='password'
-                    name='password'
-                    value={this.state.credentials.password}
-                    onChange={this.handleChange} />
-                    <button>Log In</button>
-                </form>
+            <div className="flex items-center h-screen w-full bg-shark">
+                <div className="w-full bg-white rounded shadow-lg p-8 m-4">
+                    <h1 className="block w-full text-center text-grey-darkest mb-6">Log In</h1>
+                    <form onSubmit={this.login}>
+                        <div className='flex flex-col mb-4'>
+                            <label 
+                            className='mb-2 uppercase font-bold text-lg text-grey-darkest' 
+                            hmtlfor='username'>Username</label>
+                            <input
+                            className='border py-2 py-3 text-grey-darkest' 
+                            type='text' 
+                            name='username'
+                            value={this.state.credentials.username}
+                            onChange={this.handleChange} />
+                        </div>
+                        <div className='flex flex-col mb-4'>
+                            <label
+                            className='mb-2 uppercase font-bold text-lg text-grey-darkest'
+                            htmlfor='password'>Password</label>
+                            <input
+                            className='border py-2 py-3 text-grey-darkest'
+                            type='password'
+                            name='password'
+                            value={this.state.credentials.password}
+                            onChange={this.handleChange} />
+                            <button className="block bg-black hover:bg-shark-dark text-white uppercase text-lg mx-auto p-4 rounded"
+                            >Log In</button>
+                        </div>
+                    </form>
+                </div>
             </div>
         )
     }
