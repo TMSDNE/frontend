@@ -96,6 +96,9 @@ let colors = {
   'teal-lighter': '#a0f0ed',
   'teal-lightest': '#e8fffe',
 
+  'neon': '#50b927ea',
+  'shark': '#222',
+
   'blue-darkest': '#12283a',
   'blue-darker': '#1c3d5a',
   'blue-dark': '#2779bd',
@@ -145,7 +148,7 @@ module.exports = {
   */
 
   colors: colors,
-
+ 
 
   /*
   |-----------------------------------------------------------------------------
