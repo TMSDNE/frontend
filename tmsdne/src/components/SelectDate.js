@@ -25,7 +25,7 @@ class SelectDate extends React.Component {
                 <SingleDatePicker date={this.state.date} 
                     onDateChange={date => 
                         this.setState({date: this.toISODateString(date._d)})
-                    }}
+                    }
                     focused={this.state.focused}
                     onFocusChange={({ focused }) => this.setState({ focused })}
                     id={Date().now}
