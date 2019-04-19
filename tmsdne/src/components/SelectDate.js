@@ -4,6 +4,8 @@ import {SingleDatePicker} from 'react-dates';
 import ThemedStyleSheet from 'react-with-styles/lib/ThemedStyleSheet';
 import aphroditeInterface from 'react-with-styles-interface-aphrodite';
 import DefaultTheme from 'react-dates/lib/theme/DefaultTheme';
+import {getData, storeDate} from '../actions';
+import { connect } from 'react-redux';
 
 ThemedStyleSheet.registerInterface(aphroditeInterface);
 ThemedStyleSheet.registerTheme(DefaultTheme);
@@ -14,9 +16,15 @@ class SelectDate extends React.Component {
         date: null,
         focused: null
     }
+
+    componentWillReceiveProps(){
+        this.props.getData(this.props.date)
+    }
     
     toISODateString(date) {
-        return `${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()}`
+        const month = date.getMonth()+1 <10 ? `0${date.getMonth()+1}` : `${date.getMonth()+1}`
+        const day = date.getDate()+1 <10 ? `0${date.getDate()+1}` : `${date.getDate()+1}`
+        return this.props.storeDate(`${date.getFullYear()}-${month}-${day}`)
     }
 
     render(){
@@ -31,6 +39,7 @@ class SelectDate extends React.Component {
                     id={Date().now}
                     numberOfMonths={1}
                     disableScroll={true}
+                    isOutsideRange={() => false}
                  />
             </div>
         )
@@ -38,4 +47,6 @@ class SelectDate extends React.Component {
     
 }
 
-export default SelectDate;
+const mapToDispatch = {getData, storeDate}
+
+export default connect(null, mapToDispatch)(SelectDate)

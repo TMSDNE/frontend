@@ -8,8 +8,8 @@ class ArticleList extends React.Component {
         liked: false 
     }
 
-    componentDidMount(){
-        this.props.getData()
+    componentWillReceiveProps(){
+        // this.props.getData(this.props.date)
     }
     
     handleLike = like => {
@@ -33,7 +33,8 @@ class ArticleList extends React.Component {
 
 const mapStateToProps = state => {
     return {
-        article: state.article
+        article: state.article,
+        date: state.date
     }
 }
 
