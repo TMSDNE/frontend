@@ -677,6 +677,14 @@ table {
   background-color: #e3fcec;
 }
 
+.bg-neon {
+  background-color: #50b927ea;
+}
+
+.bg-shark {
+  background-color: #e4f5ce;
+}
+
 .bg-teal-darkest {
   background-color: #0d3331;
 }
@@ -855,6 +863,10 @@ table {
 
 .hover\:bg-white:hover {
   background-color: #fff;
+}
+
+.hover\:bg-shark-dark:hover {
+  background-color: #8cbf49;
 }
 
 .hover\:bg-red-darkest:hover {
