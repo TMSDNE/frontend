@@ -1,3 +1,7 @@
+import thunk from 'redux-thunk';
+import logger from 'redux-logger';
+import {createStore, applyMiddleware} from 'redux';
+
 import {
     FETCH_ARTICLE_START,
     FETCH_ARTICLE_SUCCESS,
@@ -13,7 +17,7 @@ const initialState = {
     error: ''
 }
 
-export const reducer = (state = initialState, {type, payload}) => {
+const reducer = (state = initialState, {type, payload}) => {
     switch(type) {
         case FETCH_ARTICLE_SUCCESS:
             return {
@@ -24,6 +28,9 @@ export const reducer = (state = initialState, {type, payload}) => {
             return {
                 error: payload.error
             }
+        default:
+        return state
     }
 }
 
+export const store = createStore(reducer, applyMiddleware(thunk, logger))
